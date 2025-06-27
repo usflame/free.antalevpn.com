@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-key="page_title"></title>
+    
+    <meta name="description" data-key="meta_description" content="">
+    <meta name="keywords" data-key="meta_keywords" content="">
+    <link rel="canonical" href="https://freevpn.lioracloud.com">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://freevpn.lioracloud.com">
+    <meta property="og:title" data-key="og_title" content="">
+    <meta property="og:description" data-key="og_description" content="">
+    <meta property="og:image" content="https://cdn.liora.my/lioracloud.com/img/bv2.png">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://freevpn.lioracloud.com">
+    <meta property="twitter:title" data-key="twitter_title" content="">
+    <meta property="twitter:description" data-key="twitter_description" content="">
+    <meta property="twitter:image" content="https://cdn.liora.my/lioracloud.com/img/bv2.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" type="image/png" href="https://cdn.liora.my/lioracloud.com/img/icon.png">
+    <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --apple-green: #34c759;
+            --apple-text-primary: #f5f5f7;
+            --apple-text-secondary: rgba(245, 245, 247, 0.8);
+            --apple-link-color: #0a84ff;
+            --apple-link-hover-color: #3f9eff;
+            --apple-bg-dark: #1c1c1e;
+            --apple-card-bg: #2c2c2e;
+            --apple-border-color: rgba(255, 255, 255, 0.1);
+            --apple-button-gradient-start: #007aff;
+            --apple-button-gradient-end: #3f9eff;
+            --apple-button-hover-gradient-start: #0060df;
+            --apple-button-hover-gradient-end: #007aff;
+            --cloudflare-orange: #f48020;
+            --fastly-red: #e03838;
+            --github-blue: #171515;
+        }
+
+        body {
+            background-color: var(--apple-bg-dark);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            color: var(--apple-text-primary);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-align: center;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 150vw;
+            height: 150vh;
+            background: linear-gradient(45deg, rgba(0, 122, 255, 0.6), rgba(88, 86, 214, 0.6), rgba(175, 82, 222, 0.6), rgba(0, 122, 255, 0.6));
+            background-size: 400% 400%;
+            animation: gradientAnimation 40s ease infinite;
+            z-index: -1;
+            filter: blur(300px);
+            opacity: 0.9;
+        }
+
+        @keyframes gradientAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .header {
+            width: 100%;
+            padding: 20px 40px;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin-bottom: 30px;
+        }
+
+        .logo {
+            font-size: 1.6em;
+            font-weight: 700;
+            color: var(--apple-text-primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo img {
+            height: 32px;
+        }
+
+        .nav-link {
+            color: var(--apple-text-secondary);
+            text-decoration: none;
+            font-size: 1.0em;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--apple-link-color);
+        }
+
+        .language-switcher {
+            position: relative;
+            margin-left: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .language-switcher label {
+            font-size: 0.9em;
+            color: var(--apple-text-secondary);
+            margin-right: 8px;
+            white-space: nowrap;
+        }
+
+        .language-switcher select {
+            background-color: var(--apple-card-bg);
+            color: var(--apple-text-primary);
+            border: 1px solid var(--apple-border-color);
+            border-radius: 8px;
+            padding: 8px 12px;
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-size: 0.95em;
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            cursor: pointer;
+            outline: none;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+            min-width: 120px;
+            text-align: center;
+        }
+
+        .language-switcher select:focus {
+            border-color: var(--apple-link-color);
+            box-shadow: 0 0 0 3px rgba(10, 132, 255, 0.2);
+        }
+
+        .language-switcher select option {
+            background-color: var(--apple-card-bg);
+            color: var(--apple-text-primary);
+        }
+
+        .hero-section {
+            padding: 80px 20px;
+            text-align: center;
+            max-width: 900px;
+            margin-bottom: 60px;
+        }
+
+        .hero-title {
+            font-size: 3.5em;
+            font-weight: 700;
+            letter-spacing: -0.04em;
+            margin-bottom: 20px;
+            line-height: 1.1;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3em;
+            color: var(--apple-text-secondary);
+            margin-bottom: 40px;
+            line-height: 1.5;
+        }
+
+        .main-cta-button, .donation-button {
+            background: linear-gradient(to bottom, var(--apple-button-gradient-start), var(--apple-button-gradient-end));
+            color: var(--apple-text-primary);
+            padding: 14px 28px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 1.1em;
+            font-weight: 500;
+            transition: background 0.2s ease;
+            display: inline-block;
+            border: none;
+        }
+
+        .main-cta-button:hover, .donation-button:hover {
+            background: linear-gradient(to bottom, var(--apple-button-hover-gradient-start), var(--apple-button-hover-gradient-end));
+        }
+
+        .features-section {
+            width: 100%;
+            max-width: 1000px;
+            padding: 0 20px;
+            box-sizing: border-box;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 80px;
+        }
+
+        .feature-card {
+            background-color: var(--apple-card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            text-align: left;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .feature-icon {
+            font-size: 2em;
+            color: var(--apple-link-color);
+            margin-bottom: 10px;
+        }
+
+        .feature-icon.security::before { content: "🔒"; }
+        .feature-icon.speed::before { content: "🚀"; }
+        .feature-icon.free::before { content: "🎁"; }
+
+        .feature-card h3 {
+            font-size: 1.5em;
+            font-weight: 600;
+            color: var(--apple-text-primary);
+            margin: 0;
+        }
+
+        .feature-card p {
+            font-size: 1.0em;
+            color: var(--apple-text-secondary);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .site-footer {
+            background-color: var(--apple-bg-dark);
+            width: 100%;
+            padding: 40px 20px 80px;
+            box-sizing: border-box;
+            text-align: left;
+            margin-top: auto;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .footer-columns {
+            display: flex;
+            justify-content: space-around;
+            max-width: 960px;
+            margin: 0 auto;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .footer-column {
+            flex: 1;
+            min-width: 150px;
+            padding: 10px 0;
+        }
+
+        .footer-column h3 {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: var(--apple-text-primary);
+            margin-bottom: 15px;
+        }
+
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-column ul li a {
+            color: var(--apple-text-secondary);
+            text-decoration: none;
+            font-size: 0.95em;
+            transition: color 0.2s ease;
+        }
+
+        .footer-column ul li a:hover {
+            color: var(--apple-link-color);
+        }
+
+        .footer-bottom {
+            width: 100%;
+            max-width: 960px;
+            margin: 40px auto 0;
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-copyright-text {
+            color: var(--apple-text-secondary);
+            font-size: 0.9em;
+            white-space: normal;
+            padding: 0;
+            margin-bottom: 5px;
+        }
+
+        .swiss-based-icon {
+            height: 53px;
+            width: auto;
+            vertical-align: middle;
+            filter: none;
+            opacity: 1;
+            margin-top: 5px;
+            user-select: none;
+            -webkit-user-drag: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+        }
+
+        .powered-by-footer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            font-size: 0.9em;
+            color: var(--apple-text-secondary);
+            white-space: nowrap;
+            margin-bottom: 10px;
+        }
+
+        .powered-by-footer a {
+            color: var(--apple-text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .powered-by-footer .cloudflare-link:hover {
+            color: var(--cloudflare-orange);
+        }
+
+        .powered-by-footer .fastly-link:hover {
+            color: var(--fastly-red);
+        }
+
+        .powered-by-footer .github-link:hover {
+            color: var(--apple-link-color);
+        }
+
+        .licensing-info {
+            color: var(--apple-text-secondary);
+            font-size: 0.8em;
+            text-align: center;
+            padding: 10px 20px;
+        }
+
+        .contact-info {
+            color: var(--apple-text-secondary);
+            font-size: 0.8em;
+            text-align: center;
+            padding-top: 5px;
+        }
+        
+        .contact-info a {
+            color: var(--apple-text-secondary);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .contact-info a:hover {
+            color: var(--apple-link-color);
+        }
+
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease-out, visibility 0.3s ease-out;
+        }
+
+        .modal-overlay.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .donation-notification {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(1);
+            background-color: rgb(44, 44, 46);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease-out, visibility 0.3s ease-out, transform 0.3s ease-out;
+            max-width: 400px;
+            width: 90%;
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+        .donation-notification.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        .donation-notification.hide {
+            opacity: 0;
+            visibility: hidden;
+            transform: translate(-50%, -50%) scale(0.95);
+        }
+
+        .donation-notification p {
+            font-size: 1em;
+            line-height: 1.4;
+            margin: 0;
+            color: var(--apple-text-secondary);
+        }
+
+        .donation-notification .donation-button {
+            padding: 10px 20px;
+            font-size: 0.95em;
+            font-weight: 500;
+            border-radius: 8px;
+            background: linear-gradient(to bottom, var(--apple-button-gradient-start), var(--apple-button-gradient-end));
+            color: var(--apple-text-primary);
+            text-decoration: none;
+            transition: background 0.2s ease;
+            border: none;
+        }
+
+        .donation-notification .donation-button:hover {
+            background: linear-gradient(to bottom, var(--apple-button-hover-gradient-start), var(--apple-button-hover-gradient-end));
+        }
+
+        .close-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+            color: var(--apple-text-secondary);
+            transition: color 0.2s ease;
+        }
+
+        .close-button:hover {
+            color: var(--apple-link-color);
+        }
+
+        .close-button svg {
+            width: 18px;
+            height: 18px;
+            display: block;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                gap: 15px;
+                padding: 15px 20px;
+            }
+            .language-switcher {
+                position: static;
+                margin-top: 10px;
+                margin-left: 0;
+                justify-content: center;
+                width: 100%;
+            }
+            .hero-section {
+                padding: 60px 15px;
+            }
+            .hero-title {
+                font-size: 2.5em;
+            }
+            .hero-subtitle {
+                font-size: 1.1em;
+            }
+            .main-cta-button {
+                padding: 12px 24px;
+                font-size: 1.0em;
+            }
+            .features-section {
+                grid-template-columns: 1fr;
+                padding: 0 15px;
+                gap: 20px;
+            }
+            .feature-card {
+                padding: 25px;
+            }
+            .feature-card h3 {
+                font-size: 1.3em;
+            }
+            .footer-columns {
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+            }
+            .footer-column {
+                width: 100%;
+                text-align: center;
+            }
+            .footer-bottom {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+            .powered-by-footer {
+                flex-direction: column;
+                gap: 5px;
+                font-size: 0.85em;
+            }
+            .licensing-info, .contact-info {
+                padding: 10px 15px;
+            }
+            .donation-notification {
+                bottom: unset;
+                right: unset;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                max-width: 90%;
+            }
+            .donation-notification p {
+                font-size: 1em;
+            }
+            .donation-button {
+                padding: 12px 24px;
+                font-size: 1.0em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 2em;
+            }
+            .hero-subtitle {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <a href="https://lioracloud.com" class="logo" target="_blank" rel="noopener noreferrer">
+            <img src="https://cdn.liora.my/lioracloud.com/img/icon.png" alt="LioraCloud Logo">
+            LioraCloud
+        </a>
+        <a href="https://lioracloud.com/status" class="nav-link" data-key="status_page_link" target="_blank" rel="noopener noreferrer"></a>
+        <div class="language-switcher">
+            <label for="language-select" data-key="language_selector_label"></label>
+            <select id="language-select">
+                <option value="en" data-key="lang_en"></option>
+                <option value="pl" data-key="lang_pl"></option>
+                <option value="ru" data-key="lang_ru"></option>
+                <option value="es" data-key="lang_es"></option>
+            </select>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <h1 class="hero-title" data-key="hero_title"></h1>
+            <p class="hero-subtitle" data-key="hero_subtitle"></p>
+            <a href="https://links.lioracloud.com/free-vpn" target="_blank" rel="noopener noreferrer" class="main-cta-button" data-key="cta_button"></a>
+        </section>
+
+        <section class="features-section">
+            <div class="feature-card">
+                <div class="feature-icon security"></div>
+                <h3 data-key="feature_security_title"></h3>
+                <p data-key="feature_security_desc"></p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon speed"></div>
+                <h3 data-key="feature_speed_title"></h3>
+                <p data-key="feature_speed_desc"></p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon free"></div>
+                <h3 data-key="feature_free_title"></h3>
+                <p data-key="feature_free_desc"></p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-columns">
+            <div class="footer-column">
+                <h3 data-key="footer_support_title"></h3>
+                <ul>
+                    <li><a href="https://lioracloud.com/help" target="_blank" rel="noopener noreferrer" data-key="footer_help_center"></a></li>
+                    <li><a href="https://lioracloud.com/community" target="_blank" rel="noopener noreferrer" data-key="footer_community"></a></li>
+                    <li><a href="https://lioracloud.com/contact" target="_blank" rel="noopener noreferrer" data-key="footer_contact_us"></a></li>
+                    <li><a href="https://lioracloud.com/tickets" target="_blank" rel="noopener noreferrer" data-key="footer_tickets"></a></li>
+                    <li><a href="https://lioracloud.com/report-abuse" target="_blank" rel="noopener noreferrer" data-key="footer_report_abuse"></a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3 data-key="footer_about_us_title"></h3>
+                <ul>
+                    <li><a href="https://lioracloud.com/team" target="_blank" rel="noopener noreferrer" data-key="footer_team"></a></li>
+                    <li><a href="https://lioracloud.com/careers" target="_blank" rel="noopener noreferrer" data-key="footer_careers"></a></li>
+                    <li><a href="https://lioracloud.com/privacy-policy" target="_blank" rel="noopener noreferrer" data-key="footer_privacy_policy"></a></li>
+                    <li><a href="https://lioracloud.com/legal" target="_blank" rel="noopener noreferrer" data-key="footer_legal"></a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3 data-key="footer_connect_title"></h3>
+                <ul>
+                    <li><a href="https://twitter.com/lioracloud" target="_blank" rel="noopener noreferrer" data-key="footer_twitter"></a></li>
+                    <li><a href="https://discord.gg/lioracloud" target="_blank" rel="noopener noreferrer" data-key="footer_discord"></a></li>
+                    <li><a href="https://linkedin.com/company/lioracloud" target="_blank" rel="noopener noreferrer" data-key="footer_linkedin"></a></li>
+                    <li><a href="https://instagram.com/lioracloud" target="_blank" rel="noopener noreferrer" data-key="footer_instagram"></a></li>
+                    <li><a href="https://bsky.app/profile/liora-official.bsky.social" target="_blank" rel="noopener noreferrer" data-key="footer_bluesky"></a></li>
+                    <li><a href="https://t.me/lioravpn" target="_blank" rel="noopener noreferrer" data-key="footer_telegram"></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="powered-by-footer">
+                <span data-key="footer_powered_by"></span>
+                <a href="https://www.cloudflare.com?partner=lioracloud" target="_blank" rel="noopener noreferrer" class="cloudflare-link">Cloudflare</a> &
+                <a href="https://www.fastly.com/?pr=lioracloud.com" target="_blank" rel="noopener noreferrer" class="fastly-link">Fastly</a> &
+                <a href="https://github.com/?ref=liora" target="_blank" rel="noopener noreferrer" class="github-link">GitHub</a>
+            </div>
+            <div class="footer-copyright-group">
+                <p class="footer-copyright-text" data-key="footer_copyright"></p>
+                <img src="https://cdn.liora.my/web-assets/global/ic/Swiss-Based.png" alt="Swiss-Based" class="swiss-based-icon">
+            </div>
+        </div>
+        <div class="licensing-info">
+            <span data-key="licensing_text_part1"></span>
+            <br>
+            <span data-key="licensing_text_part2"></span>
+        </div>
+        <div class="contact-info">
+            <span data-key="contact_text"></span> <a href="mailto:abuse@lioracloud.com">abuse@lioracloud.com</a>
+        </div>
+    </footer>
+
+    <div class="modal-overlay" id="modal-overlay"></div>
+    <div class="donation-notification" id="donation-notification">
+        <button class="close-button" id="close-donation-btn">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </button>
+        <p data-key="donation_text"></p>
+        <a href="https://donate.lioracloud.com/freevpn" target="_blank" rel="noopener noreferrer" class="donation-button" data-key="donation_button_text"></a>
+    </div>
+
+    <script>
+        const translations = {
+            'en': {
+                'page_title': 'Free VPN by LioraCloud - Secure, Fast, Free',
+                'meta_description': 'Experience complete online security and anonymity with LioraCloud\'s free VPN. Enjoy fast, reliable connections without hidden costs. Get your free VPN today!',
+                'meta_keywords': 'free VPN, LioraCloud VPN, secure VPN, anonymous VPN, fast VPN, privacy, online security, free proxy, bypass geo-restrictions',
+                'og_title': 'Free VPN by LioraCloud - Secure, Fast, Free',
+                'og_description': 'Experience complete online security and anonymity with LioraCloud\'s free VPN. Enjoy fast, reliable connections without hidden costs.',
+                'twitter_title': 'Free VPN by LioraCloud - Secure, Fast, Free',
+                'twitter_description': 'Experience complete online security and anonymity with LioraCloud\'s free VPN. Enjoy fast, reliable connections without hidden costs.',
+                'status_page_link': 'Status Page',
+                'lioracloud_logo_text': 'LioraCloud',
+                'hero_title': 'Your Internet, Reimagined. Absolutely Free.',
+                'hero_subtitle': 'Access the open internet with LioraCloud\'s Free VPN. Experience unparalleled security, blazing-fast speeds, and true digital freedom without compromise.',
+                'cta_button': 'Get Your Free VPN Now',
+                'feature_security_title': 'Complete Security & Anonymity',
+                'feature_security_desc': 'Browse, stream, and communicate with ultimate peace of mind. Our VPN encrypts your connection, masks your IP address, and adheres to a strict no-logs policy, ensuring your online activities remain private and secure from prying eyes.',
+                'feature_speed_title': 'Unrivaled Quality & Speed',
+                'feature_speed_desc': 'Powered by our global network and optimized infrastructure (including Cloudflare and Fastly integrations), LioraCloud Free VPN delivers consistently high speeds for seamless browsing, HD streaming, and rapid downloads, no matter where you are.',
+                'feature_free_title': 'Truly Free, Forever',
+                'feature_free_desc': 'We believe everyone deserves secure internet access. LioraCloud\'s Free VPN is genuinely free, with no hidden fees, bandwidth limits, or annoying ads. Enjoy premium VPN features without ever reaching for your wallet.',
+                'footer_support_title': 'Support',
+                'footer_help_center': 'Help Center',
+                'footer_community': 'Community',
+                'footer_contact_us': 'Contact Us',
+                'footer_tickets': 'Tickets',
+                'footer_report_abuse': 'Report Abuse',
+                'footer_about_us_title': 'About Us',
+                'footer_team': 'Team',
+                'footer_careers': 'Careers',
+                'footer_privacy_policy': 'Privacy Policy',
+                'footer_legal': 'Legal',
+                'footer_connect_title': 'Connect',
+                'footer_twitter': 'Twitter (X)',
+                'footer_discord': 'Discord',
+                'footer_linkedin': 'LinkedIn',
+                'footer_instagram': 'Instagram',
+                'footer_bluesky': 'Bluesky',
+                'footer_telegram': 'Telegram',
+                'footer_powered_by': 'Powered by',
+                'footer_copyright': 'Copyright &copy; 2025 Liora Technologies International. All rights reserved.',
+                'licensing_text_part1': 'This page uses the "SF Pro Display" font, which is a trademark of Apple Inc. We believe our use of this font qualifies as fair use for non-commercial purposes related to a non-profit project.',
+                'licensing_text_part2': 'We are not affiliated with Apple, Inc. and have no association with their company.',
+                'contact_text': 'For any inquiries regarding abuse, please contact:',
+                'language_selector_label': 'Language:',
+                'lang_en': 'English (US)',
+                'lang_pl': 'Polski',
+                'lang_ru': 'Русский',
+                'lang_es': 'Español',
+                'donation_text': 'This project is completely free, but you can support our efforts here:',
+                'donation_button_text': 'Support Us'
+            },
+            'pl': {
+                'page_title': 'Darmowy VPN od LioraCloud - Bezpieczny, Szybki, Darmowy',
+                'meta_description': 'Darmowy VPN LioraCloud: pełne bezpieczeństwo i anonimowość online. Szybkie, niezawodne połączenia bez ukrytych kosztów. Pobierz dziś!',
+                'meta_keywords': 'darmowy VPN, LioraCloud VPN, bezpieczny VPN, anonimowy VPN, szybki VPN, prywatność, bezpieczeństwo online, darmowe proxy, omijanie ograniczeń geograficznych',
+                'og_title': 'Darmowy VPN od LioraCloud - Bezpieczny, Szybki, Darmowy',
+                'og_description': 'Darmowy VPN LioraCloud: pełne bezpieczeństwo i anonimowość online. Szybkie, niezawodne połączenia bez ukrytych kosztów.',
+                'twitter_title': 'Darmowy VPN od LioraCloud - Bezpieczny, Szybki, Darmowy',
+                'twitter_description': 'Darmowy VPN LioraCloud: pełne bezpieczeństwo i anonimowość online. Szybkie, niezawodne połączenia bez ukrytych kosztów.',
+                'status_page_link': 'Strona statusu',
+                'lioracloud_logo_text': 'LioraCloud',
+                'hero_title': 'Twój Internet, na nowo. Całkowicie za darmo.',
+                'hero_subtitle': 'Dostęp do otwartego internetu z LioraCloud Free VPN. Bezpieczeństwo, szybkie połączenia i cyfrowa wolność.',
+                'cta_button': 'Pobierz Swój Darmowy VPN Teraz',
+                'feature_security_title': 'Pełne bezpieczeństwo i anonimowość',
+                'feature_security_desc': 'Nasz VPN szyfruje połączenie, maskuje IP i przestrzega polityki braku logów. Twoja aktywność online pozostaje prywatna i bezpieczna.',
+                'feature_speed_title': 'Niezrównana jakość i prędkość',
+                'feature_speed_desc': 'Dzięki globalnej sieci LioraCloud Free VPN zapewnia wysokie prędkości do płynnego przeglądania, streamowania i pobierania.',
+                'feature_free_title': 'Naprawdę darmowy, na zawsze',
+                'feature_free_desc': 'LioraCloud Free VPN jest całkowicie darmowy, bez ukrytych opłat i limitów. Ciesz się premium VPN bez kosztów.',
+                'footer_support_title': 'Wsparcie',
+                'footer_help_center': 'Centrum Pomocy',
+                'footer_community': 'Społeczność',
+                'footer_contact_us': 'Skontaktuj się z nami',
+                'footer_tickets': 'Zgłoszenia',
+                'footer_report_abuse': 'Zgłoś nadużycie',
+                'footer_about_us_title': 'O nas',
+                'footer_team': 'Zespół',
+                'footer_careers': 'Kariera',
+                'footer_privacy_policy': 'Polityka prywatności',
+                'footer_legal': 'Prawne',
+                'footer_connect_title': 'Połącz się',
+                'footer_twitter': 'Twitter (X)',
+                'footer_discord': 'Discord',
+                'footer_linkedin': 'LinkedIn',
+                'footer_instagram': 'Instagram',
+                'footer_bluesky': 'Bluesky',
+                'footer_telegram': 'Telegram',
+                'footer_powered_by': 'Obsługiwane przez',
+                'footer_copyright': 'Copyright &copy; 2025 Liora Technologies International. Wszelkie prawa zastrzeżone.',
+                'licensing_text_part1': 'Ta strona używa czcionki "SF Pro Display" (znak towarowy Apple Inc.). Użycie jest dozwolone w celach niekomercyjnych dla projektu non-profit.',
+                'licensing_text_part2': 'Nie jesteśmy powiązani z Apple, Inc.',
+                'contact_text': 'Pytania o nadużycia:',
+                'language_selector_label': 'Język:',
+                'lang_en': 'English (US)',
+                'lang_pl': 'Polski',
+                'lang_ru': 'Русский',
+                'lang_es': 'Español',
+                'donation_text': 'Ten projekt jest całkowicie darmowy, ale możesz wesprzeć nasze wysiłki tutaj:',
+                'donation_button_text': 'Wspomóż nas'
+            },
+            'ru': {
+                'page_title': 'Бесплатный VPN от LioraCloud - Безопасно, Быстро, Бесплатно',
+                'meta_description': 'Бесплатный VPN LioraCloud: полная безопасность и анонимность онлайн. Быстрые, надежные соединения без скрытых затрат. Получите свой бесплатный VPN сегодня!',
+                'meta_keywords': 'бесплатный VPN, LioraCloud VPN, безопасный VPN, анонимный VPN, быстрый VPN, конфиденциальность, онлайн-безопасность, бесплатный прокси, обход гео-ограничений',
+                'og_title': 'Бесплатный VPN от LioraCloud - Безопасно, Быстро, Бесплатно',
+                'og_description': 'Бесплатный VPN LioraCloud: полная безопасность и анонимность онлайн. Быстрые, надежные соединения без скрытых затрат.',
+                'twitter_title': 'Бесплатный VPN от LioraCloud - Безопасно, Быстро, Бесплатно',
+                'twitter_description': 'Бесплатный VPN LioraCloud: полная безопасность и анонимность онлайн. Быстрые, надежные соединения без скрытых затрат.',
+                'status_page_link': 'Страница статуса',
+                'lioracloud_logo_text': 'LioraCloud',
+                'hero_title': 'Ваш Интернет, переосмысление. Абсолютно бесплатно.',
+                'hero_subtitle': 'Получите доступ к открытому Интернету с бесплатным VPN от LioraCloud. Безопасность, скорость и цифровая свобода.',
+                'cta_button': 'Получить Ваш Бесплатный VPN Сейчас',
+                'feature_security_title': 'Полная безопасность и анонимность',
+                'feature_security_desc': 'Наш VPN шифрует ваше соединение, маскирует IP и не ведет логи. Ваша онлайн-активность приватна и защищена.',
+                'feature_speed_title': 'Непревзойденное качество и скорость',
+                'feature_speed_desc': 'Благодаря глобальной сети LioraCloud Free VPN обеспечивает стабильно высокую скорость для просмотра, стриминга и загрузки.',
+                'feature_free_title': 'Действительно бесплатно, навсегда',
+                'feature_free_desc': 'LioraCloud Free VPN полностью бесплатен, без скрытых платежей и ограничений. Наслаждайтесь функциями премиум-VPN без затрат.',
+                'footer_support_title': 'Поддержка',
+                'footer_help_center': 'Справочный центр',
+                'footer_community': 'Сообщество',
+                'footer_contact_us': 'Связаться с нами',
+                'footer_tickets': 'Тикеты',
+                'footer_report_abuse': 'Сообщить о нарушении',
+                'footer_about_us_title': 'О нас',
+                'footer_team': 'Команда',
+                'footer_careers': 'Карьера',
+                'footer_privacy_policy': 'Политика конфиденциальности',
+                'footer_legal': 'Юридическая информация',
+                'footer_connect_title': 'Связаться',
+                'footer_twitter': 'Twitter (X)',
+                'footer_discord': 'Discord',
+                'footer_linkedin': 'LinkedIn',
+                'footer_instagram': 'Instagram',
+                'footer_bluesky': 'Bluesky',
+                'footer_telegram': 'Telegram',
+                'footer_powered_by': 'Работает на',
+                'footer_copyright': 'Copyright &copy; 2025 Liora Technologies International. Все права защищены.',
+                'licensing_text_part1': 'Эта страница использует шрифт "SF Pro Display" (торговая марка Apple Inc.). Использование для некоммерческого проекта является добросовестным.',
+                'licensing_text_part2': 'Мы не аффилированы с Apple, Inc.',
+                'contact_text': 'По вопросам нарушений:',
+                'language_selector_label': 'Язык:',
+                'lang_en': 'English (US)',
+                'lang_pl': 'Polski',
+                'lang_ru': 'Русский',
+                'lang_es': 'Español',
+                'donation_text': 'Этот проект полностью бесплатен, но вы можете поддержать наши старания здесь:',
+                'donation_button_text': 'Поддержать нас'
+            },
+            'es': {
+                'page_title': 'VPN Gratuita LioraCloud - Segura, Rápida, Gratis',
+                'meta_description': 'VPN gratuita LioraCloud: seguridad y anonimato online. Conexiones fiables sin costes. ¡Obtenga su VPN gratis hoy!',
+                'meta_keywords': 'VPN gratuita, LioraCloud VPN, VPN segura, VPN anónima, VPN rápida, privacidad, seguridad online, proxy gratuito, sortear restricciones geográficas',
+                'og_title': 'VPN Gratuita LioraCloud - Segura, Rápida, Gratis',
+                'og_description': 'VPN gratuita LioraCloud: seguridad y anonimato online. Conexiones fiables sin costes.',
+                'twitter_title': 'VPN Gratuita LioraCloud - Segura, Rápida, Gratis',
+                'twitter_description': 'VPN gratuita LioraCloud: seguridad y anonimato online. Conexiones fiables sin costes.',
+                'status_page_link': 'Página de Estado',
+                'lioracloud_logo_text': 'LioraCloud',
+                'hero_title': 'Su Internet, reinventado. Completamente gratis.',
+                'hero_subtitle': 'Acceda a internet abierto con la VPN gratuita de LioraCloud. Seguridad inigualable, velocidades rápidas y libertad digital.',
+                'cta_button': 'Obtenga Su VPN Gratuita Ahora',
+                'feature_security_title': 'Seguridad y anonimato completos',
+                'feature_security_desc': 'Nuestra VPN encripta su conexión, oculta su IP y no guarda registros. Sus actividades en línea permanecen privadas y seguras.',
+                'feature_speed_title': 'Calidad y velocidad inigualables',
+                'feature_speed_desc': 'Impulsada por nuestra red global, la VPN gratuita de LioraCloud ofrece altas velocidades para navegación, streaming y descargas fluidas.',
+                'feature_free_title': 'Verdaderamente gratis, para siempre',
+                'feature_free_desc': 'La VPN gratuita de LioraCloud es realmente gratuita, sin costes ocultos ni límites. Disfrute de funciones premium sin pagar.',
+                'footer_support_title': 'Soporte',
+                'footer_help_center': 'Centro de Ayuda',
+                'footer_community': 'Comunidad',
+                'footer_contact_us': 'Contáctenos',
+                'footer_tickets': 'Tickets',
+                'footer_report_abuse': 'Reportar Abuso',
+                'footer_about_us_title': 'Sobre Nosotros',
+                'footer_team': 'Equipo',
+                'footer_careers': 'Carreras',
+                'footer_privacy_policy': 'Política de Privacidad',
+                'footer_legal': 'Legal',
+                'footer_connect_title': 'Conectar',
+                'footer_twitter': 'Twitter (X)',
+                'footer_discord': 'Discord',
+                'footer_linkedin': 'LinkedIn',
+                'footer_instagram': 'Instagram',
+                'footer_bluesky': 'Bluesky',
+                'footer_telegram': 'Telegram',
+                'footer_powered_by': 'Desarrollado por',
+                'footer_copyright': 'Copyright &copy; 2025 Liora Technologies International. Todos los derechos reservados.',
+                'licensing_text_part1': 'Esta página usa la fuente "SF Pro Display" (marca de Apple Inc.). Su uso para un proyecto sin fines de lucro es justo.',
+                'licensing_text_part2': 'No estamos afiliados con Apple, Inc.',
+                'contact_text': 'Para consultas sobre abuso:',
+                'language_selector_label': 'Idioma:',
+                'lang_en': 'English (US)',
+                'lang_pl': 'Polski',
+                'lang_ru': 'Русский',
+                'lang_es': 'Español',
+                'donation_text': 'Este proyecto es completamente gratuito, pero puede apoyar nuestros esfuerzos aquí:',
+                'donation_button_text': 'Apóyenos'
+            }
+        };
+
+        const languageSelect = document.getElementById('language-select');
+        const donationNotification = document.getElementById('donation-notification');
+        const closeDonationBtn = document.getElementById('close-donation-btn');
+        const modalOverlay = document.getElementById('modal-overlay');
+
+        const DONATION_POPUP_KEY = 'lioracloud_donation_popup_hidden_until';
+        const TWO_HOURS_MS = 2 * 60 * 60 * 1000;
+
+        function applyLanguage(lang) {
+            document.querySelectorAll('[data-key]').forEach(element => {
+                const key = element.getAttribute('data-key');
+                if (translations[lang] && translations[lang][key]) {
+                    if (element.tagName === 'META') {
+                        if (element.name === 'description' || element.name === 'keywords') {
+                            element.setAttribute('content', translations[lang][key]);
+                        } else if (element.getAttribute('property') && (element.getAttribute('property').includes('og:title') || element.getAttribute('property').includes('og:description') || element.getAttribute('property').includes('twitter:title') || element.getAttribute('property').includes('twitter:description'))) {
+                            element.setAttribute('content', translations[lang][key]);
+                        }
+                    } else {
+                        element.innerHTML = translations[lang][key];
+                    }
+                }
+            });
+
+            document.title = translations[lang]['page_title'];
+            document.querySelector('meta[name="description"]').setAttribute('content', translations[lang]['meta_description']);
+            document.querySelector('meta[name="keywords"]').setAttribute('content', translations[lang]['meta_keywords']);
+            document.querySelector('meta[property="og:title"]').setAttribute('content', translations[lang]['og_title']);
+            document.querySelector('meta[property="og:description"]').setAttribute('content', translations[lang]['og_description']);
+            document.querySelector('meta[property="twitter:title"]').setAttribute('content', translations[lang]['twitter_title']);
+            document.querySelector('meta[property="twitter:description"]').setAttribute('content', translations[lang]['twitter_description']);
+        }
+
+        let userLang = localStorage.getItem('selectedLanguage') || navigator.language.split('-')[0];
+        if (!translations[userLang]) {
+            userLang = 'en';
+        }
+        languageSelect.value = userLang;
+        applyLanguage(userLang);
+
+        languageSelect.addEventListener('change', (event) => {
+            const newLang = event.target.value;
+            localStorage.setItem('selectedLanguage', newLang);
+            applyLanguage(newLang);
+        });
+
+        function showDonationPopup() {
+            modalOverlay.classList.add('show');
+            donationNotification.classList.add('show');
+            donationNotification.classList.remove('hide');
+        }
+
+        function hideDonationPopup() {
+            modalOverlay.classList.remove('show');
+            donationNotification.classList.remove('show');
+            donationNotification.classList.add('hide');
+            localStorage.setItem(DONATION_POPUP_KEY, Date.now() + TWO_HOURS_MS);
+        }
+
+        window.addEventListener('load', () => {
+            const hiddenUntil = localStorage.getItem(DONATION_POPUP_KEY);
+            const now = Date.now();
+
+            if (!hiddenUntil || now >= parseInt(hiddenUntil, 10)) {
+                showDonationPopup();
+            }
+        });
+
+        closeDonationBtn.addEventListener('click', () => {
+            hideDonationPopup();
+        });
+
+        modalOverlay.addEventListener('click', (event) => {
+            if (event.target === modalOverlay) {
+                hideDonationPopup();
+            }
+        });
+    </script>
+
+</body>
+</html>
