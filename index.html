@@ -32,8 +32,8 @@
             --apple-text-secondary: rgba(245, 245, 247, 0.8);
             --apple-link-color: #0a84ff;
             --apple-link-hover-color: #3f9eff;
-            --apple-bg-dark: #1c1c1e;
-            --apple-card-bg: #2c2c2e;
+            --apple-bg-dark: #000000;
+            --apple-card-bg: #1c1c1e;
             --apple-border-color: rgba(255, 255, 255, 0.1);
             --apple-button-gradient-start: #007aff;
             --apple-button-gradient-end: #3f9eff;
@@ -42,6 +42,8 @@
             --cloudflare-orange: #f48020;
             --fastly-red: #e03838;
             --github-blue: #171515;
+            --light-blue-gradient-start: rgba(100, 160, 255, 0.35);
+            --dark-blue-gradient-end: rgba(50, 110, 210, 0.35);
         }
 
         body {
@@ -61,31 +63,23 @@
             position: relative;
         }
 
-        body::before {
-            content: "";
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 150vw;
-            height: 150vh;
-            background: linear-gradient(45deg, rgba(0, 122, 255, 0.6), rgba(88, 86, 214, 0.6), rgba(175, 82, 222, 0.6), rgba(0, 122, 255, 0.6));
-            background-size: 400% 400%;
-            animation: gradientAnimation 40s ease infinite;
-            z-index: -1;
-            filter: blur(300px);
-            opacity: 0.9;
+        .floating-element {
+            position: absolute; width: 280px; height: 280px;
+            border-radius: 50%; background: radial-gradient(circle, var(--light-blue-gradient-start), var(--dark-blue-gradient-end));
+            animation: float 15s ease-in-out infinite alternate;
+            filter: blur(140px); opacity: 0.8; will-change: transform, opacity;
+            transform: translateZ(0); z-index: -1;
         }
+        .floating-element:nth-child(1) { top: 10%; left: 5%; animation-delay: 0s; }
+        .floating-element:nth-child(2) { top: 60%; right: 5%; animation-delay: -5s; width: 320px; height: 320px; }
+        .floating-element:nth-child(3) { bottom: 10%; left: 15%; animation-delay: -10s; width: 250px; height: 250px; }
+        .floating-element:nth-child(4) { top: 30%; right: 20%; animation-delay: -2s; width: 200px; height: 200px; }
+        .floating-element:nth-child(5) { top: 80%; left: 30%; animation-delay: -8s; width: 260px; height: 260px; }
 
-        @keyframes gradientAnimation {
-            0% {
-                background-position: 0% 50%;
-            }
-            50% {
-                background-position: 100% 50%;
-            }
-            100% {
-                background-position: 0% 50%;
-            }
+        @keyframes float {
+            0% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(40px, -60px) scale(1.1); }
+            100% { transform: translate(0, 0) scale(1); }
         }
 
         .header {
@@ -189,20 +183,21 @@
         }
 
         .main-cta-button, .donation-button {
-            background: linear-gradient(to bottom, var(--apple-button-gradient-start), var(--apple-button-gradient-end));
-            color: var(--apple-text-primary);
+            background-color: var(--apple-link-color);
+            color: white;
             padding: 14px 28px;
-            border-radius: 8px;
+            border-radius: 980px;
             text-decoration: none;
             font-size: 1.1em;
             font-weight: 500;
-            transition: background 0.2s ease;
+            transition: transform 0.3s ease, background-color 0.3s ease;
             display: inline-block;
             border: none;
         }
 
         .main-cta-button:hover, .donation-button:hover {
-            background: linear-gradient(to bottom, var(--apple-button-hover-gradient-start), var(--apple-button-hover-gradient-end));
+            transform: scale(1.05);
+            background-color: #0a84ff;
         }
 
         .features-section {
@@ -253,7 +248,7 @@
         }
 
         .site-footer {
-            background-color: var(--apple-bg-dark);
+            background-color: transparent;
             width: 100%;
             padding: 40px 20px 80px;
             box-sizing: border-box;
@@ -455,22 +450,6 @@
             color: var(--apple-text-secondary);
         }
 
-        .donation-notification .donation-button {
-            padding: 10px 20px;
-            font-size: 0.95em;
-            font-weight: 500;
-            border-radius: 8px;
-            background: linear-gradient(to bottom, var(--apple-button-gradient-start), var(--apple-button-gradient-end));
-            color: var(--apple-text-primary);
-            text-decoration: none;
-            transition: background 0.2s ease;
-            border: none;
-        }
-
-        .donation-notification .donation-button:hover {
-            background: linear-gradient(to bottom, var(--apple-button-hover-gradient-start), var(--apple-button-hover-gradient-end));
-        }
-
         .close-button {
             position: absolute;
             top: 10px;
@@ -583,6 +562,12 @@
     </style>
 </head>
 <body>
+    <div class="floating-element"></div>
+    <div class="floating-element"></div>
+    <div class="floating-element"></div>
+    <div class="floating-element"></div>
+    <div class="floating-element"></div>
+    
     <header class="header">
         <a href="https://lioracloud.com" class="logo" target="_blank" rel="noopener noreferrer">
             <img src="https://cdn.liora.my/lioracloud.com/img/icon.png" alt="AntaleVPN Logo">
@@ -710,7 +695,7 @@
                 'feature_security_title': 'Complete Security & Anonymity',
                 'feature_security_desc': 'Browse, stream, and communicate with ultimate peace of mind. Our VPN encrypts your connection, masks your IP address, and adheres to a strict no-logs policy, ensuring your online activities remain private and secure from prying eyes.',
                 'feature_speed_title': 'Unrivaled Quality & Speed',
-                'feature_speed_desc': 'Powered by our global network and optimized infrastructure (including Cloudflare and Fastly integrations), AntaleVPN Free VPN delivers consistently high speeds for seamless browsing, HD streaming, and rapid downloads, no matter where you are.',
+                'feature_speed_desc': 'Powered by our global network and optimized infrastructure (including Cloudflare and Fastly integrations), AntaleVPN Free VPN delivers consistently high speeds for seamless Browse, HD streaming, and rapid downloads, no matter where you are.',
                 'feature_free_title': 'Truly Free, Forever',
                 'feature_free_desc': 'We believe everyone deserves secure internet access. AntaleVPN\'s Free VPN is genuinely free, with no hidden fees, bandwidth limits, or annoying ads. Enjoy premium VPN features without ever reaching for your wallet.',
                 'footer_support_title': 'Support',
