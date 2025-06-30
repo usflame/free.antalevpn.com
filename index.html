@@ -4,402 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title data-key="page_title"></title>
-    
     <meta name="description" data-key="meta_description" content="">
     <meta name="keywords" data-key="meta_keywords" content="">
     <link rel="canonical" href="https://free.antalevpn.com">
-
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://free.antalevpn.com">
     <meta property="og:title" data-key="og_title" content="">
     <meta property="og:description" data-key="og_description" content="">
     <meta property="og:image" content="https://cdn.liora.my/lioracloud.com/img/bv2.png">
-
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://free.antalevpn.com">
     <meta property="twitter:title" data-key="twitter_title" content="">
     <meta property="twitter:description" data-key="twitter_description" content="">
     <meta property="twitter:image" content="https://cdn.liora.my/lioracloud.com/img/bv2.png">
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="icon" type="image/png" href="https://cdn.liora.my/lioracloud.com/img/icon.png">
     <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@400;500;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --apple-green: #34c759;
-            --apple-text-primary: #f5f5f7;
-            --apple-text-secondary: rgba(245, 245, 247, 0.8);
-            --apple-link-color: #007aff;
-            --apple-link-hover-color: #3f9eff;
-            --apple-bg-dark: #000000;
-            --apple-card-bg: #1c1c1e;
-            --apple-border-color: #2a2a2c;
-            --light-blue-gradient-start: rgba(100, 160, 255, 0.35);
-            --dark-blue-gradient-end: rgba(50, 110, 210, 0.35);
-        }
-
-        body {
-            background-color: var(--apple-bg-dark);
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            align-items: center;
-            min-height: 100vh;
-            margin: 0;
-            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            color: var(--apple-text-primary);
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            text-align: center;
-            overflow-x: hidden;
-            position: relative;
-        }
-
-        .floating-element {
-            position: absolute; width: 280px; height: 280px;
-            border-radius: 50%; background: radial-gradient(circle, var(--light-blue-gradient-start), var(--dark-blue-gradient-end));
-            animation: float 15s ease-in-out infinite alternate;
-            filter: blur(140px); opacity: 0.8; will-change: transform, opacity;
-            transform: translateZ(0); z-index: -1;
-        }
-        .floating-element:nth-child(1) { top: 10%; left: 5%; animation-delay: 0s; }
-        .floating-element:nth-child(2) { top: 60%; right: 5%; animation-delay: -5s; width: 320px; height: 320px; }
-        .floating-element:nth-child(3) { bottom: 10%; left: 15%; animation-delay: -10s; width: 250px; height: 250px; }
-        .floating-element:nth-child(4) { top: 30%; right: 20%; animation-delay: -2s; width: 200px; height: 200px; }
-        .floating-element:nth-child(5) { top: 80%; left: 30%; animation-delay: -8s; width: 260px; height: 260px; }
-
-        @keyframes float {
-            0% { transform: translate(0, 0) scale(1); }
-            50% { transform: translate(40px, -60px) scale(1.1); }
-            100% { transform: translate(0, 0) scale(1); }
-        }
-
-        .header {
-            width: 100%;
-            padding: 20px 40px;
-            box-sizing: border-box;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1200px;
-            margin-bottom: 30px;
-        }
-
-        .logo {
-            font-size: 1.6em;
-            font-weight: 700;
-            color: var(--apple-text-primary);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .logo img {
-            height: 32px;
-        }
-
-        .nav-link {
-            color: var(--apple-text-secondary);
-            text-decoration: none;
-            font-size: 1.0em;
-            transition: color 0.3s ease;
-        }
-
-        .nav-link:hover {
-            color: var(--apple-link-color);
-        }
-
-        .language-switcher {
-            position: relative;
-            margin-left: 20px;
-            display: flex;
-            align-items: center;
-        }
-
-        .language-switcher label {
-            font-size: 0.9em;
-            color: var(--apple-text-secondary);
-            margin-right: 8px;
-            white-space: nowrap;
-        }
-
-        .language-switcher select {
-            background-color: var(--apple-card-bg);
-            color: var(--apple-text-primary);
-            border: 1px solid var(--apple-border-color);
-            border-radius: 8px;
-            padding: 8px 12px;
-            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            font-size: 0.95em;
-            appearance: none;
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            cursor: pointer;
-            outline: none;
-            transition: border-color 0.2s ease, box-shadow 0.2s ease;
-            min-width: 120px;
-            text-align: center;
-        }
-
-        .language-switcher select:focus {
-            border-color: var(--apple-link-color);
-            box-shadow: 0 0 0 3px rgba(10, 132, 255, 0.2);
-        }
-
-        .language-switcher select option {
-            background-color: var(--apple-card-bg);
-            color: var(--apple-text-primary);
-        }
-
-        .hero-section {
-            padding: 80px 20px;
-            text-align: center;
-            max-width: 900px;
-            margin-bottom: 60px;
-        }
-
-        .hero-title {
-            font-size: 3.5em;
-            font-weight: 700;
-            letter-spacing: -0.04em;
-            margin-bottom: 20px;
-            line-height: 1.1;
-        }
-
-        .hero-subtitle {
-            font-size: 1.3em;
-            color: var(--apple-text-secondary);
-            margin-bottom: 40px;
-            line-height: 1.5;
-        }
-
-        .main-cta-button, .donation-button {
-            background-color: var(--apple-link-color);
-            color: white;
-            padding: 14px 28px;
-            border-radius: 980px;
-            text-decoration: none;
-            font-size: 1.1em;
-            font-weight: 500;
-            transition: transform 0.3s ease, background-color 0.3s ease;
-            display: inline-block;
-            border: none;
-        }
-
-        .main-cta-button:hover, .donation-button:hover {
-            transform: scale(1.05);
-            background-color: #0a84ff;
-        }
-
-        .features-section {
-            width: 100%;
-            max-width: 1000px;
-            padding: 0 20px;
-            box-sizing: border-box;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-bottom: 80px;
-        }
-
-        .feature-card {
-            background-color: var(--apple-card-bg);
-            border-radius: 12px;
-            padding: 30px;
-            text-align: left;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 15px;
-        }
-
-        .feature-icon {
-            font-size: 2em;
-            color: var(--apple-link-color);
-            margin-bottom: 10px;
-        }
-
-        .feature-icon.security::before { content: "🔒"; }
-        .feature-icon.speed::before { content: "🚀"; }
-        .feature-icon.free::before { content: "🎁"; }
-
-        .feature-card h3 {
-            font-size: 1.5em;
-            font-weight: 600;
-            color: var(--apple-text-primary);
-            margin: 0;
-        }
-
-        .feature-card p {
-            font-size: 1.0em;
-            color: var(--apple-text-secondary);
-            line-height: 1.6;
-            margin: 0;
-        }
-
-        .site-footer {
-            text-align: center;
-            padding: 3rem 5%;
-            border-top: 1px solid var(--apple-border-color);
-            color: var(--apple-text-secondary);
-            font-size: 0.9rem;
-            position: relative;
-            z-index: 10;
-            margin-top: auto;
-            width: 100%;
-            box-sizing: border-box;
-        }
-
-        .footer-nav {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .footer-nav a {
-            color: var(--apple-text-secondary);
-            text-decoration: none;
-            font-size: 0.95em;
-            transition: color 0.2s ease;
-        }
-
-        .footer-nav a:hover {
-            color: var(--apple-link-color);
-        }
-
-        .footer-bottom {
-            width: 100%;
-            max-width: 960px;
-            margin: 40px auto 0;
-            text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .footer-copyright-text {
-            color: var(--apple-text-secondary);
-            font-size: 0.9em;
-        }
-
-        .swiss-based-icon {
-            height: 53px;
-            width: auto;
-            vertical-align: middle;
-            margin-top: 1rem;
-        }
-
-        .powered-by-footer {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 15px;
-            font-size: 0.9em;
-            color: var(--apple-text-secondary);
-            white-space: nowrap;
-            margin: 20px 0;
-        }
-
-        .powered-by-footer a {
-            color: var(--apple-text-secondary);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.2s ease;
-        }
-
-        .powered-by-footer .cloudflare-link:hover { color: #f48020; }
-        .powered-by-footer .fastly-link:hover { color: #e03838; }
-        .powered-by-footer .github-link:hover { color: var(--apple-link-color); }
-
-        .contact-info {
-            color: var(--apple-text-secondary);
-            font-size: 0.8em;
-            text-align: center;
-            padding-top: 5px;
-        }
-        
-        .contact-info a {
-            color: var(--apple-text-secondary);
-            text-decoration: none;
-            transition: color 0.2s ease;
-        }
-
-        .contact-info a:hover {
-            color: var(--apple-link-color);
-        }
-
-        .modal-overlay {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background-color: rgba(0, 0, 0, 0.5); backdrop-filter: blur(5px);
-            -webkit-backdrop-filter: blur(5px); z-index: 999;
-            opacity: 0; visibility: hidden;
-            transition: opacity 0.3s ease-out, visibility 0.3s ease-out;
-        }
-
-        .modal-overlay.show { opacity: 1; visibility: visible; }
-
-        .donation-notification {
-            position: fixed; top: 50%; left: 50%;
-            transform: translate(-50%, -50%) scale(1);
-            background-color: rgb(44, 44, 46); padding: 30px;
-            border-radius: 12px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            display: flex; flex-direction: column; align-items: center;
-            gap: 20px; z-index: 1000;
-            opacity: 0; visibility: hidden;
-            transition: opacity 0.3s ease-out, visibility 0.3s ease-out, transform 0.3s ease-out;
-            max-width: 400px; width: 90%;
-            box-sizing: border-box; text-align: center;
-        }
-
-        .donation-notification.show { opacity: 1; visibility: visible; transform: translate(-50%, -50%) scale(1); }
-        .donation-notification.hide { opacity: 0; visibility: hidden; transform: translate(-50%, -50%) scale(0.95); }
-
-        .donation-notification p { font-size: 1em; line-height: 1.5; margin: 0; color: var(--apple-text-secondary); }
-
-        .close-button {
-            position: absolute; top: 10px; right: 10px;
-            background: none; border: none; cursor: pointer;
-            padding: 5px; color: var(--apple-text-secondary);
-            transition: color 0.2s ease;
-        }
-
-        .close-button:hover { color: var(--apple-link-color); }
-
-        .close-button svg {
-            width: 18px; height: 18px; display: block;
-            stroke: currentColor; stroke-width: 2;
-            stroke-linecap: round; stroke-linejoin: round;
-        }
-
-        @media (max-width: 768px) {
-            .header { flex-direction: column; gap: 15px; padding: 15px 20px; }
-            .language-switcher { position: static; margin-top: 10px; margin-left: 0; justify-content: center; width: 100%; }
-            .hero-section { padding: 60px 15px; }
-            .hero-title { font-size: 2.5em; }
-            .hero-subtitle { font-size: 1.1em; }
-            .main-cta-button { padding: 12px 24px; font-size: 1.0em; }
-            .features-section { grid-template-columns: 1fr; padding: 0 15px; gap: 20px; }
-            .feature-card { padding: 25px; }
-            .feature-card h3 { font-size: 1.3em; }
-            .footer-nav { flex-direction: column; gap: 1rem; }
-            .powered-by-footer { flex-direction: column; gap: 5px; font-size: 0.85em; }
-            .donation-notification { max-width: 90%; }
-            .donation-notification p { font-size: 1em; }
-            .donation-button { padding: 12px 24px; font-size: 1.0em; }
-        }
-
-        @media (max-width: 480px) {
-            .hero-title { font-size: 2em; }
-            .hero-subtitle { font-size: 1em; }
-        }
-    </style>
+    <style>:root{--apple-green:#34c759;--apple-text-primary:#f5f5f7;--apple-text-secondary:rgba(245,245,247,.8);--apple-link-color:#007aff;--apple-link-hover-color:#3f9eff;--apple-bg-dark:#000;--apple-card-bg:#1c1c1e;--apple-border-color:#2a2a2c;--light-blue-gradient-start:rgba(100,160,255,.35);--dark-blue-gradient-end:rgba(50,110,210,.35)}body{background-color:var(--apple-bg-dark);display:flex;flex-direction:column;justify-content:flex-start;align-items:center;min-height:100vh;margin:0;font-family:'SF Pro Display',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;color:var(--apple-text-primary);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-align:center;overflow-x:hidden;position:relative}.floating-element{position:absolute;width:280px;height:280px;border-radius:50%;background:radial-gradient(circle,var(--light-blue-gradient-start),var(--dark-blue-gradient-end));animation:float 15s ease-in-out infinite alternate;filter:blur(140px);opacity:.8;will-change:transform,opacity;transform:translateZ(0);z-index:-1}.floating-element:nth-child(1){top:10%;left:5%;animation-delay:0s}.floating-element:nth-child(2){top:60%;right:5%;animation-delay:-5s;width:320px;height:320px}.floating-element:nth-child(3){bottom:10%;left:15%;animation-delay:-10s;width:250px;height:250px}.floating-element:nth-child(4){top:30%;right:20%;animation-delay:-2s;width:200px;height:200px}.floating-element:nth-child(5){top:80%;left:30%;animation-delay:-8s;width:260px;height:260px}@keyframes float{0%{transform:translate(0,0) scale(1)}50%{transform:translate(40px,-60px) scale(1.1)}100%{transform:translate(0,0) scale(1)}}.header{width:100%;padding:15px 40px;box-sizing:border-box;display:flex;justify-content:space-between;align-items:center;max-width:1200px;position:sticky;top:0;z-index:100;background-color:rgba(0,0,0,.5);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--apple-border-color)}.logo{font-size:1.6em;font-weight:700;color:var(--apple-text-primary);text-decoration:none;display:flex;align-items:center;gap:10px}.logo img{height:32px}.nav-link{color:var(--apple-text-secondary);text-decoration:none;font-size:1em;transition:color .3s ease}.nav-link:hover{color:var(--apple-link-color)}.language-switcher{position:relative;margin-left:20px;display:flex;align-items:center}.language-switcher label{font-size:.9em;color:var(--apple-text-secondary);margin-right:8px;white-space:nowrap}.language-switcher select{background-color:var(--apple-card-bg);color:var(--apple-text-primary);border:1px solid var(--apple-border-color);border-radius:8px;padding:8px 12px;font-family:'SF Pro Display',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:.95em;-webkit-appearance:none;-moz-appearance:none;appearance:none;cursor:pointer;outline:0;transition:border-color .2s ease,box-shadow .2s ease;min-width:120px;text-align:center}.language-switcher select:focus{border-color:var(--apple-link-color);box-shadow:0 0 0 3px rgba(10,132,255,.2)}.language-switcher select option{background-color:var(--apple-card-bg);color:var(--apple-text-primary)}.hero-section{padding:80px 20px;text-align:center;max-width:900px;margin-bottom:60px;width:100%;box-sizing:border-box}.hero-title{font-size:3.5em;font-weight:700;letter-spacing:-.04em;margin-bottom:20px;line-height:1.1}.hero-subtitle{font-size:1.3em;color:var(--apple-text-secondary);margin-bottom:40px;line-height:1.5}.main-cta-button,.donation-button{background-color:var(--apple-link-color);color:#fff;padding:14px 28px;border-radius:980px;text-decoration:none;font-size:1.1em;font-weight:500;transition:transform .3s ease,background-color .3s ease;display:inline-block;border:none}.main-cta-button:hover,.donation-button:hover{transform:scale(1.05);background-color:#0a84ff}.features-section{width:100%;max-width:1000px;padding:0 20px;box-sizing:border-box;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:30px;margin-bottom:80px}.feature-card{background-color:var(--apple-card-bg);border-radius:12px;padding:30px;text-align:left;box-shadow:0 4px 15px rgba(0,0,0,.2);display:flex;flex-direction:column;align-items:flex-start;gap:15px}.feature-icon{font-size:2em;color:var(--apple-link-color);margin-bottom:10px}.feature-icon.security::before{content:"🔒"}.feature-icon.speed::before{content:"🚀"}.feature-icon.free::before{content:"🎁"}.feature-card h3{font-size:1.5em;font-weight:600;color:var(--apple-text-primary);margin:0}.feature-card p{font-size:1em;color:var(--apple-text-secondary);line-height:1.6;margin:0}.site-footer{text-align:center;padding:3rem 5%;border-top:1px solid var(--apple-border-color);color:var(--apple-text-secondary);position:relative;z-index:10;margin-top:auto;width:100%;box-sizing:border-box}.footer-nav{display:flex;justify-content:center;gap:1.5rem;margin-bottom:1.5rem}.footer-nav a{color:var(--apple-text-secondary);text-decoration:none;font-size:1.1em;transition:color .2s ease}.footer-nav a:hover{color:var(--apple-link-color)}.footer-bottom{width:100%;max-width:960px;margin:40px auto 0;text-align:center;padding-top:20px;border-top:1px solid rgba(255,255,255,.05);display:flex;flex-direction:column;align-items:center;gap:10px}.footer-copyright-text{color:var(--apple-text-secondary);font-size:1.05em}.swiss-based-icon{height:53px;width:auto;vertical-align:middle;margin-top:1rem}.powered-by-footer{display:flex;justify-content:center;align-items:center;gap:15px;font-size:1.05em;color:var(--apple-text-secondary);white-space:nowrap;margin:20px 0}.powered-by-footer a{color:var(--apple-text-secondary);text-decoration:none;font-weight:500;transition:color .2s ease}.powered-by-footer .cloudflare-link:hover{color:#f48020}.powered-by-footer .fastly-link:hover{color:#e03838}.powered-by-footer .github-link:hover{color:var(--apple-link-color)}.licensing-info{color:var(--apple-text-secondary);font-size:.9em;text-align:center;padding:10px 20px;margin-top:20px}.contact-info{color:var(--apple-text-secondary);font-size:1.05em;text-align:center;padding-top:15px}.contact-info a{color:var(--apple-text-secondary);text-decoration:none;transition:color .2s ease}.contact-info a:hover{color:var(--apple-link-color)}.modal-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background-color:rgba(0,0,0,.5);backdrop-filter:blur(5px);-webkit-backdrop-filter:blur(5px);z-index:999;opacity:0;visibility:hidden;transition:opacity .3s ease-out,visibility .3s ease-out}.modal-overlay.show{opacity:1;visibility:visible}.donation-notification{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%) scale(1);background-color:#2c2c2e;padding:30px;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,.5);display:flex;flex-direction:column;align-items:center;gap:20px;z-index:1000;opacity:0;visibility:hidden;transition:opacity .3s ease-out,visibility .3s ease-out,transform .3s ease-out;max-width:400px;width:90%;box-sizing:border-box;text-align:center}.donation-notification.show{opacity:1;visibility:visible;transform:translate(-50%,-50%) scale(1)}.donation-notification.hide{opacity:0;visibility:hidden;transform:translate(-50%,-50%) scale(.95)}.donation-notification p{font-size:1em;line-height:1.5;margin:0;color:var(--apple-text-secondary)}.close-button{position:absolute;top:10px;right:10px;background:0 0;border:none;cursor:pointer;padding:5px;color:var(--apple-text-secondary);transition:color .2s ease}.close-button:hover{color:var(--apple-link-color)}.close-button svg{width:18px;height:18px;display:block;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}@media (max-width:768px){.header{flex-direction:column;gap:15px;padding:15px 20px}.language-switcher{margin-top:10px;margin-left:0;justify-content:center;width:100%}.hero-section{padding:60px 15px}.hero-title{font-size:2.5em}.hero-subtitle{font-size:1.1em}.main-cta-button{padding:12px 24px;font-size:1em}.features-section{grid-template-columns:1fr;padding:0 15px;gap:20px}.feature-card{padding:25px}.feature-card h3{font-size:1.3em}.footer-nav{flex-direction:column;gap:1rem}.powered-by-footer{flex-direction:column;gap:5px;font-size:.95em}.donation-notification{max-width:90%}.donation-notification p{font-size:1em}.donation-button{padding:12px 24px;font-size:1em}}@media (max-width:480px){.hero-title{font-size:2em}.hero-subtitle{font-size:1em}}</style>
 </head>
 <body>
     <div class="floating-element"></div>
@@ -407,13 +29,12 @@
     <div class="floating-element"></div>
     <div class="floating-element"></div>
     <div class="floating-element"></div>
-    
     <header class="header">
-        <a href="https://lioracloud.com" class="logo" target="_blank" rel="noopener noreferrer">
+        <a href="https://antalevpn.com" class="logo" target="_blank" rel="noopener noreferrer">
             <img src="https://cdn.liora.my/lioracloud.com/img/icon.png" alt="AntaleVPN Logo">
             AntaleVPN
         </a>
-        <a href="https://status.antalevpn.com" class="nav-link" data-key="status_page_link" target="_blank" rel="noopener noreferrer"></a>
+        <a href="https://freestatus.antalevpn.com" class="nav-link" data-key="status_page_link" target="_blank" rel="noopener noreferrer"></a>
         <div class="language-switcher">
             <label for="language-select" data-key="language_selector_label"></label>
             <select id="language-select">
@@ -424,14 +45,12 @@
             </select>
         </div>
     </header>
-
     <main>
         <section class="hero-section">
             <h1 class="hero-title" data-key="hero_title"></h1>
             <p class="hero-subtitle" data-key="hero_subtitle"></p>
             <a href="https://free.antalevpn.com/get/" target="_blank" rel="noopener noreferrer" class="main-cta-button" data-key="cta_button"></a>
         </section>
-
         <section class="features-section">
             <div class="feature-card">
                 <div class="feature-icon security"></div>
@@ -450,237 +69,37 @@
             </div>
         </section>
     </main>
-
     <footer class="site-footer">
         <div class="footer-nav">
-            <a href="#" data-key="footer_paid_plans" id="footer-paid-plans-link"></a>
+            <a href="#" data-key="footer_paid_plans" id="footer-paid-plans-link" target="_blank" rel="noopener noreferrer"></a>
             <a href="https://freestatus.antalevpn.com" data-key="status_page_link" target="_blank" rel="noopener noreferrer"></a>
         </div>
         <div class="powered-by-footer">
             <span data-key="footer_powered_by"></span>
-            <a href="https://www.cloudflare.com?partner=antalevpn" target="_blank" rel="noopener noreferrer" class="cloudflare-link">Cloudflare</a> &
-            <a href="https://www.fastly.com/?pr=antalevpn.com" target="_blank" rel="noopener noreferrer" class="fastly-link">Fastly</a> &
-            <a href="https://github.com/?ref=antale" target="_blank" rel="noopener noreferrer" class="github-link">GitHub</a>
+            <a href="https://www.cloudflare.com?partner=lioracloud" target="_blank" rel="noopener noreferrer" class="cloudflare-link">Cloudflare</a> &
+            <a href="https://www.fastly.com/?pr=lioracloud.com" target="_blank" rel="noopener noreferrer" class="fastly-link">Fastly</a> &
+            <a href="https://github.com/?ref=liora" target="_blank" rel="noopener noreferrer" class="github-link">GitHub</a>
         </div>
         <p class="footer-copyright-text" data-key="footer_copyright"></p>
+        <div class="licensing-info">
+            <span data-key="licensing_text_part1"></span><br>
+            <span data-key="licensing_text_part2"></span>
+        </div>
         <img src="https://cdn.liora.my/web-assets/global/ic/Swiss-Based.png" alt="Swiss-Based" class="swiss-based-icon">
         <div class="contact-info">
             <span data-key="contact_text"></span> <a href="mailto:abuse@lioravpn.com">abuse@lioravpn.com</a>
         </div>
     </footer>
-
     <div class="modal-overlay" id="modal-overlay"></div>
     <div class="donation-notification" id="donation-notification">
         <button class="close-button" id="close-donation-btn">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18 6L6 18M6 6L18 18" stroke="currentColor"/>
             </svg>
         </button>
         <p data-key="donation_text"></p>
         <a href="#" target="_blank" rel="noopener noreferrer" class="donation-button" data-key="donation_button_text"></a>
     </div>
-
-    <script>
-        const translations = {
-            'en': {
-                'page_title': 'AntaleVPN Free — Experience Privacy, Redefined.',
-                'meta_description': 'AntaleVPN provides a secure, high-speed, and completely free gateway to the open internet. Discover true online freedom and uncompromising privacy.',
-                'meta_keywords': 'free vpn, best free vpn, antalevpn, secure vpn, anonymous Browse, online privacy, fast vpn',
-                'og_title': 'AntaleVPN Free — Experience Privacy, Redefined.',
-                'og_description': 'AntaleVPN provides a secure, high-speed, and completely free gateway to the open internet. Discover true online freedom and uncompromising privacy.',
-                'twitter_title': 'AntaleVPN Free — Experience Privacy, Redefined.',
-                'twitter_description': 'AntaleVPN provides a secure, high-speed, and completely free gateway to the open internet. Discover true online freedom and uncompromising privacy.',
-                'status_page_link': 'Network Status',
-                'hero_title': 'Experience Privacy. Redefined.',
-                'hero_subtitle': 'AntaleVPN provides a secure, high-speed, and completely free gateway to the open internet. Discover true online freedom and uncompromising privacy.',
-                'cta_button': 'Secure Your Connection',
-                'feature_security_title': 'Engineered for Anonymity.',
-                'feature_security_desc': 'We believe your data is yours alone. Our service is built on a strict no-logs policy and fortified with robust encryption, ensuring your digital footprint remains untraceable.',
-                'feature_speed_title': 'Uncompromising Performance.',
-                'feature_speed_desc': 'Our global network, enhanced by Cloudflare and Fastly, is optimized for speed and reliability. Stream, download, and browse without interruption.',
-                'feature_free_title': 'Privacy as a Right, Not a Privilege.',
-                'feature_free_desc': 'AntaleVPN is committed to providing exceptional VPN service at no cost. No hidden fees, no data caps, no compromises. Just pure, unrestricted internet access for everyone.',
-                'footer_paid_plans': 'Paid Plans',
-                'footer_powered_by': 'Powered by',
-                'footer_copyright': 'Copyright &copy; 2025 Liora Technologies International. All rights reserved.',
-                'contact_text': 'For any inquiries regarding abuse, please contact:',
-                'language_selector_label': 'Language:',
-                'lang_en': 'English (US)',
-                'lang_pl': 'Polski',
-                'lang_ru': 'Русский',
-                'lang_es': 'Español',
-                'donation_text': 'Our free service is engineered for an essential layer of privacy. For the ultimate suite of security features and unparalleled performance, we invite you to explore our premium plans.',
-                'donation_button_text': 'Discover Premium'
-            },
-            'ru': {
-                'page_title': 'AntaleVPN Free — Приватность. Новый стандарт.',
-                'meta_description': 'AntaleVPN открывает безопасный, высокоскоростной и абсолютно бесплатный доступ к открытому интернету. Откройте для себя подлинную свободу онлайн и бескомпромиссную конфиденциальность.',
-                'meta_keywords': 'бесплатный vpn, лучший бесплатный vpn, antalevpn, безопасный vpn, анонимный просмотр, приватность онлайн, быстрый vpn',
-                'og_title': 'AntaleVPN Free — Приватность. Новый стандарт.',
-                'og_description': 'AntaleVPN открывает безопасный, высокоскоростной и абсолютно бесплатный доступ к открытому интернету. Откройте для себя подлинную свободу онлайн и бескомпромиссную конфиденциальность.',
-                'twitter_title': 'AntaleVPN Free — Приватность. Новый стандарт.',
-                'twitter_description': 'AntaleVPN открывает безопасный, высокоскоростной и абсолютно бесплатный доступ к открытому интернету. Откройте для себя подлинную свободу онлайн и бескомпромиссную конфиденциальность.',
-                'status_page_link': 'Статус сети',
-                'hero_title': 'Приватность. Новый стандарт.',
-                'hero_subtitle': 'AntaleVPN открывает безопасный, высокоскоростной и абсолютно бесплатный доступ к открытому интернету. Откройте для себя подлинную свободу онлайн и бескомпромиссную конфиденциальность.',
-                'cta_button': 'Защитить соединение',
-                'feature_security_title': 'Создан для анонимности.',
-                'feature_security_desc': 'Мы считаем, что ваши данные принадлежат только вам. Наш сервис построен на строгой политике отсутствия логов и усилен надежным шифрованием, гарантируя, что ваш цифровой след останется невидимым.',
-                'feature_speed_title': 'Бескомпромиссная производительность.',
-                'feature_speed_desc': 'Наша глобальная сеть, оптимизированная с помощью Cloudflare и Fastly, создана для скорости и надежности. Смотрите потоковое видео, загружайте файлы и просматривайте веб-страницы без прерываний.',
-                'feature_free_title': 'Приватность — это право, а не привилегия.',
-                'feature_free_desc': 'AntaleVPN стремится предоставлять исключительный VPN-сервис бесплатно. Никаких скрытых платежей, ограничений по данным или компромиссов. Только чистый, неограниченный доступ в интернет для всех.',
-                'footer_paid_plans': 'Платные планы',
-                'footer_powered_by': 'Работает на',
-                'footer_copyright': 'Copyright &copy; 2025 Liora Technologies International. Все права защищены.',
-                'contact_text': 'По вопросам злоупотреблений обращайтесь:',
-                'language_selector_label': 'Язык:',
-                'lang_en': 'English (US)',
-                'lang_pl': 'Polski',
-                'lang_ru': 'Русский',
-                'lang_es': 'Español',
-                'donation_text': 'Наш бесплатный сервис обеспечивает базовый уровень приватности. Чтобы ощутить полный спектр функций безопасности и непревзойденную производительность, ознакомьтесь с нашими премиальными планами.',
-                'donation_button_text': 'Узнать о Premium'
-            },
-            'pl': {
-                'page_title': 'AntaleVPN Free — Prywatność. Zdefiniowana na nowo.',
-                'meta_description': 'AntaleVPN zapewnia bezpieczną, szybką i całkowicie bezpłatną bramę do otwartego internetu. Odkryj prawdziwą wolność online i bezkompromisową prywatność.',
-                'meta_keywords': 'darmowy vpn, najlepszy darmowy vpn, antalevpn, bezpieczny vpn, anonimowe przeglądanie, prywatność online, szybki vpn',
-                'og_title': 'AntaleVPN Free — Prywatność. Zdefiniowana na nowo.',
-                'og_description': 'AntaleVPN zapewnia bezpieczną, szybką i całkowicie bezpłatną bramę do otwartego internetu. Odkryj prawdziwą wolność online i bezkompromisową prywatność.',
-                'twitter_title': 'AntaleVPN Free — Prywatność. Zdefiniowana na nowo.',
-                'twitter_description': 'AntaleVPN zapewnia bezpieczną, szybką i całkowicie bezpłatną bramę do otwartego internetu. Odkryj prawdziwą wolność online i bezkompromisową prywatność.',
-                'status_page_link': 'Status sieci',
-                'hero_title': 'Prywatność. Zdefiniowana na nowo.',
-                'hero_subtitle': 'AntaleVPN zapewnia bezpieczną, szybką i całkowicie bezpłatną bramę do otwartego internetu. Odkryj prawdziwą wolność online i bezkompromisową prywatność.',
-                'cta_button': 'Zabezpiecz swoje połączenie',
-                'feature_security_title': 'Zaprojektowany dla anonimowości.',
-                'feature_security_desc': 'Wierzymy, że Twoje dane należą wyłącznie do Ciebie. Nasza usługa opiera się na rygorystycznej polityce braku logów i jest wzmocniona solidnym szyfrowaniem, co zapewnia, że Twój cyfrowy ślad pozostaje niemożliwy do wyśledzenia.',
-                'feature_speed_title': 'Bezkompromisowa wydajność.',
-                'feature_speed_desc': 'Nasza globalna sieć, wzmocniona przez Cloudflare i Fastly, jest zoptymalizowana pod kątem szybkości i niezawodności. Przesyłaj strumieniowo, pobieraj i przeglądaj bez przerw.',
-                'feature_free_title': 'Prywatność jako prawo, a nie przywilej.',
-                'feature_free_desc': 'AntaleVPN jest zaangażowany w dostarczanie wyjątkowej usługi VPN bez żadnych kosztów. Żadnych ukrytych opłat, limitów danych ani kompromisów. Po prostu czysty, nieograniczony dostęp do internetu dla każdego.',
-                'footer_paid_plans': 'Płatne plany',
-                'footer_powered_by': 'Obsługiwane przez',
-                'footer_copyright': 'Copyright &copy; 2025 Liora Technologies International. Wszelkie prawa zastrzeżone.',
-                'contact_text': 'W przypadku zapytań dotyczących nadużyć, prosimy o kontakt:',
-                'language_selector_label': 'Język:',
-                'lang_en': 'English (US)',
-                'lang_pl': 'Polski',
-                'lang_ru': 'Русский',
-                'lang_es': 'Español',
-                'donation_text': 'Nasza bezpłatna usługa została zaprojektowana, aby zapewnić niezbędną warstwę prywatności. Aby poznać pełny pakiet funkcji bezpieczeństwa i niezrównaną wydajność, zapraszamy do zapoznania się z naszymi planami premium.',
-                'donation_button_text': 'Odkryj Premium'
-            },
-            'es': {
-                'page_title': 'AntaleVPN Free — Privacidad. Redefinida.',
-                'meta_description': 'AntaleVPN proporciona una puerta de enlace segura, de alta velocidad y completamente gratuita a la internet abierta. Descubra la verdadera libertad en línea y una privacidad sin concesiones.',
-                'meta_keywords': 'vpn gratis, mejor vpn gratis, antalevpn, vpn segura, navegación anónima, privacidad en línea, vpn rápida',
-                'og_title': 'AntaleVPN Free — Privacidad. Redefinida.',
-                'og_description': 'AntaleVPN proporciona una puerta de enlace segura, de alta velocidad y completamente gratuita a la internet abierta. Descubra la verdadera libertad en línea y una privacidad sin concesiones.',
-                'twitter_title': 'AntaleVPN Free — Privacidad. Redefinida.',
-                'twitter_description': 'AntaleVPN proporciona una puerta de enlace segura, de alta velocidad y completamente gratuita a la internet abierta. Descubra la verdadera libertad en línea y una privacidad sin concesiones.',
-                'status_page_link': 'Estado de la red',
-                'hero_title': 'Privacidad. Redefinida.',
-                'hero_subtitle': 'AntaleVPN proporciona una puerta de enlace segura, de alta velocidad y completamente gratuita a la internet abierta. Descubra la verdadera libertad en línea y una privacidad sin concesiones.',
-                'cta_button': 'Asegura tu conexión',
-                'feature_security_title': 'Diseñado para el anonimato.',
-                'feature_security_desc': 'Creemos que tus datos te pertenecen solo a ti. Nuestro servicio se basa en una estricta política de no registros y está fortalecido con un cifrado robusto, asegurando que tu huella digital permanezca intrazaable.',
-                'feature_speed_title': 'Rendimiento sin concesiones.',
-                'feature_speed_desc': 'Nuestra red global, mejorada por Cloudflare y Fastly, está optimizada para la velocidad y la fiabilidad. Transmita, descargue y navegue sin interrupciones.',
-                'feature_free_title': 'La privacidad como un derecho, no un privilegio.',
-                'feature_free_desc': 'AntaleVPN se compromete a proporcionar un servicio de VPN excepcional sin costo alguno. Sin tarifas ocultas, sin límites de datos, sin compromisos. Solo acceso a Internet puro y sin restricciones para todos.',
-                'footer_paid_plans': 'Planes de pago',
-                'footer_powered_by': 'Desarrollado por',
-                'footer_copyright': 'Copyright &copy; 2025 Liora Technologies International. Todos los derechos reservados.',
-                'contact_text': 'Para consultas sobre abuso, por favor contacte a:',
-                'language_selector_label': 'Idioma:',
-                'lang_en': 'English (US)',
-                'lang_pl': 'Polski',
-                'lang_ru': 'Русский',
-                'lang_es': 'Español',
-                'donation_text': 'Nuestro servicio gratuito está diseñado para una capa esencial de privacidad. Para obtener el conjunto definitivo de características de seguridad y un rendimiento incomparable, lo invitamos a explorar nuestros planes premium.',
-                'donation_button_text': 'Descubre Premium'
-            }
-        };
-
-        const languageSelect = document.getElementById('language-select');
-        const donationNotification = document.getElementById('donation-notification');
-        const closeDonationBtn = document.getElementById('close-donation-btn');
-        const modalOverlay = document.getElementById('modal-overlay');
-
-        const DONATION_POPUP_KEY = 'lioracloud_donation_popup_hidden_until';
-        const TWO_HOURS_MS = 2 * 60 * 60 * 1000;
-
-        function applyLanguage(lang) {
-            document.querySelectorAll('[data-key]').forEach(element => {
-                const key = element.getAttribute('data-key');
-                if (translations[lang] && translations[lang][key]) {
-                    if (element.tagName === 'META') {
-                        element.setAttribute('content', translations[lang][key]);
-                    } else {
-                        element.innerHTML = translations[lang][key];
-                    }
-                }
-            });
-
-            document.title = translations[lang]['page_title'];
-            document.querySelector('meta[name="description"]').setAttribute('content', translations[lang]['meta_description']);
-            document.querySelector('meta[name="keywords"]').setAttribute('content', translations[lang]['meta_keywords']);
-            
-            const donationButton = document.querySelector('.donation-button');
-            const paidPlansLink = document.getElementById('footer-paid-plans-link');
-            
-            let pricingUrl = 'https://antalevpn.com/pricing';
-            if (lang !== 'en') {
-                pricingUrl = `https://antalevpn.com/${lang}/pricing`;
-            }
-            donationButton.href = pricingUrl;
-            paidPlansLink.href = pricingUrl;
-        }
-
-        let userLang = localStorage.getItem('selectedLanguage') || navigator.language.split('-')[0];
-        if (!translations[userLang]) {
-            userLang = 'en';
-        }
-        languageSelect.value = userLang;
-        applyLanguage(userLang);
-
-        languageSelect.addEventListener('change', (event) => {
-            const newLang = event.target.value;
-            localStorage.setItem('selectedLanguage', newLang);
-            applyLanguage(newLang);
-        });
-
-        function showDonationPopup() {
-            modalOverlay.classList.add('show');
-            donationNotification.classList.add('show');
-            donationNotification.classList.remove('hide');
-        }
-
-        function hideDonationPopup() {
-            modalOverlay.classList.remove('show');
-            donationNotification.classList.remove('show');
-            donationNotification.classList.add('hide');
-            localStorage.setItem(DONATION_POPUP_KEY, Date.now() + TWO_HOURS_MS);
-        }
-
-        window.addEventListener('load', () => {
-            const hiddenUntil = localStorage.getItem(DONATION_POPUP_KEY);
-            const now = Date.now();
-
-            if (!hiddenUntil || now >= parseInt(hiddenUntil, 10)) {
-                setTimeout(showDonationPopup, 3000); // Show popup after 3 seconds
-            }
-        });
-
-        closeDonationBtn.addEventListener('click', hideDonationPopup);
-        modalOverlay.addEventListener('click', (event) => {
-            if (event.target === modalOverlay) {
-                hideDonationPopup();
-            }
-        });
-    </script>
-
+    <script>const translations={'en':{page_title:'AntaleVPN Free — Experience Privacy, Redefined.',meta_description:'AntaleVPN provides a secure, high-speed, and completely free gateway to the open internet. Discover true online freedom and uncompromising privacy.',meta_keywords:'free vpn, best free vpn, antalevpn, secure vpn, anonymous Browse, online privacy, fast vpn',og_title:'AntaleVPN Free — Experience Privacy, Redefined.',og_description:'AntaleVPN provides a secure, high-speed, and completely free gateway to the open internet. Discover true online freedom and uncompromising privacy.',twitter_title:'AntaleVPN Free — Experience Privacy, Redefined.',twitter_description:'AntaleVPN provides a secure, high-speed, and completely free gateway to the open internet. Discover true online freedom and uncompromising privacy.',status_page_link:'Network Status',hero_title:'Experience Privacy. Redefined.',hero_subtitle:'AntaleVPN provides a secure, high-speed, and completely free gateway to the open internet. Discover true online freedom and uncompromising privacy.',cta_button:'Secure Your Connection',feature_security_title:'Engineered for Anonymity.',feature_security_desc:'We believe your data is yours alone. Our service is built on a strict no-logs policy and fortified with robust encryption, ensuring your digital footprint remains untraceable.',feature_speed_title:'Uncompromising Performance.',feature_speed_desc:'Our global network, enhanced by Cloudflare and Fastly, is optimized for speed and reliability. Stream, download, and browse without interruption.',feature_free_title:'Privacy as a Right, Not a Privilege.',feature_free_desc:"AntaleVPN is committed to providing exceptional VPN service at no cost. No hidden fees, no data caps, no compromises. Just pure, unrestricted internet access for everyone.",footer_paid_plans:'Paid Plans',footer_powered_by:'Powered by',footer_copyright:'Copyright &copy; 2025 Liora Technologies International. All rights reserved.',contact_text:'For any inquiries regarding abuse, please contact:',language_selector_label:'Language:',lang_en:'English (US)',lang_pl:'Polski',lang_ru:'Русский',lang_es:'Español',donation_text:'Our free service is engineered for an essential layer of privacy. For the ultimate suite of security features and unparalleled performance, we invite you to explore our premium plans.',donation_button_text:'Discover Premium',licensing_text_part1:'This page uses the "SF Pro Display" font, which is a trademark of Apple Inc. We believe our use of this font qualifies as fair use for non-commercial purposes related to a non-profit project.',licensing_text_part2:'We are not affiliated with Apple, Inc. and have no association with their company.'},ru:{page_title:'AntaleVPN Free — Приватность. Новый стандарт.',meta_description:'AntaleVPN открывает безопасный, высокоскоростной и абсолютно бесплатный доступ к открытому интернету. Откройте для себя подлинную свободу онлайн и бескомпромиссную конфиденциальность.',meta_keywords:'бесплатный vpn, лучший бесплатный vpn, antalevpn, безопасный vpn, анонимный просмотр, приватность онлайн, быстрый vpn',og_title:'AntaleVPN Free — Приватность. Новый стандарт.',og_description:'AntaleVPN открывает безопасный, высокоскоростной и абсолютно бесплатный доступ к открытому интернету. Откройте для себя подлинную свободу онлайн и бескомпромиссную конфиденциальность.',twitter_title:'AntaleVPN Free — Приватность. Новый стандарт.',twitter_description:'AntaleVPN открывает безопасный, высокоскоростной и абсолютно бесплатный доступ к открытому интернету. Откройте для себя подлинную свободу онлайн и бескомпромиссную конфиденциальность.',status_page_link:'Статус сети',hero_title:'Приватность. Новый стандарт.',hero_subtitle:'AntaleVPN открывает безопасный, высокоскоростной и абсолютно бесплатный доступ к открытому интернету. Откройте для себя подлинную свободу онлайн и бескомпромиссную конфиденциальность.',cta_button:'Защитить соединение',feature_security_title:'Создан для анонимности.',feature_security_desc:'Мы считаем, что ваши данные принадлежат только вам. Наш сервис построен на строгой политике отсутствия логов и усилен надежным шифрованием, гарантируя, что ваш цифровой след останется невидимым.',feature_speed_title:'Бескомпромиссная производительность.',feature_speed_desc:'Наша глобальная сеть, оптимизированная с помощью Cloudflare и Fastly, создана для скорости и надежности. Смотрите потоковое видео, загружайте файлы и просматривайте веб-страницы без прерываний.',feature_free_title:'Приватность — это право, а не привилегия.',feature_free_desc:'AntaleVPN стремится предоставлять исключительный VPN-сервис бесплатно. Никаких скрытых платежей, ограничений по данным или компромиссов. Только чистый, неограниченный доступ в интернет для всех.',footer_paid_plans:'Платные планы',footer_powered_by:'Работает на',footer_copyright:'Copyright &copy; 2025 Liora Technologies International. Все права защищены.',contact_text:'По вопросам злоупотреблений обращайтесь:',language_selector_label:'Язык:',lang_en:'English (US)',lang_pl:'Polski',lang_ru:'Русский',lang_es:'Español',donation_text:'Наш бесплатный сервис обеспечивает базовый уровень приватности. Чтобы ощутить полный спектр функций безопасности и непревзойденную производительность, ознакомьтесь с нашими премиальными планами.',donation_button_text:'Узнать о Premium',licensing_text_part1:'Эта страница использует шрифт "SF Pro Display", который является товарным знаком Apple Inc. Мы считаем, что использование этого шрифта в некоммерческих целях для некоммерческого проекта является добросовестным.',licensing_text_part2:'Мы не связаны с компанией Apple Inc. и не имеем к ней никакого отношения.'},pl:{page_title:'AntaleVPN Free — Prywatność. Zdefiniowana na nowo.',meta_description:'AntaleVPN zapewnia bezpieczną, szybką i całkowicie bezpłatną bramę do otwartego internetu. Odkryj prawdziwą wolność online i bezkompromisową prywatność.',meta_keywords:'darmowy vpn, najlepszy darmowy vpn, antalevpn, bezpieczny vpn, anonimowe przeglądanie, prywatność online, szybki vpn',og_title:'AntaleVPN Free — Prywatność. Zdefiniowana na nowo.',og_description:'AntaleVPN zapewnia bezpieczną, szybką i całkowicie bezpłatną bramę do otwartego internetu. Odkryj prawdziwą wolność online i bezkompromisową prywatność.',twitter_title:'AntaleVPN Free — Prywatność. Zdefiniowana na nowo.',twitter_description:'AntaleVPN zapewnia bezpieczną, szybką i całkowicie bezpłatną bramę do otwartego internetu. Odkryj prawdziwą wolność online i bezkompromisową prywatność.',status_page_link:'Status sieci',hero_title:'Prywatność. Zdefiniowana na nowo.',hero_subtitle:'AntaleVPN zapewnia bezpieczną, szybką i całkowicie bezpłatną bramę do otwartego internetu. Odkryj prawdziwą wolność online i bezkompromisową prywatność.',cta_button:'Zabezpiecz swoje połączenie',feature_security_title:'Zaprojektowany dla anonimowości.',feature_security_desc:'Wierzymy, że Twoje dane należą wyłącznie do Ciebie. Nasza usługa opiera się na rygorystycznej polityce braku logów i jest wzmocniona solidnym szyfrowaniem, co zapewnia, że Twój cyfrowy ślad pozostaje niemożliwy do wyśledzenia.',feature_speed_title:'Bezkompromisowa wydajność.',feature_speed_desc:'Nasza globalna sieć, wzmocniona przez Cloudflare i Fastly, jest zoptymalizowana pod kątem szybkości i niezawodności. Przesyłaj strumieniowo, pobieraj i przeglądaj bez przerw.',feature_free_title:'Prywatność jako prawo, a nie przywilej.',feature_free_desc:'AntaleVPN jest zaangażowany w dostarczanie wyjątkowej usługi VPN bez żadnych kosztów. Żadnych ukrytych opłat, limitów danych ani kompromisów. Po prostu czysty, nieograniczony dostęp do internetu dla każdego.',footer_paid_plans:'Płatne plany',footer_powered_by:'Obsługiwane przez',footer_copyright:'Copyright &copy; 2025 Liora Technologies International. Wszelkie prawa zastrzeżone.',contact_text:'W przypadku zapytań dotyczących nadużyć, prosimy o kontakt:',language_selector_label:'Język:',lang_en:'English (US)',lang_pl:'Polski',lang_ru:'Русский',lang_es:'Español',donation_text:'Nasza bezpłatna usługa została zaprojektowana, aby zapewnić niezbędną warstwę prywatności. Aby poznać pełny pakiet funkcji bezpieczeństwa i niezrównaną wydajność, zapraszamy do zapoznania się z naszymi planami premium.',donation_button_text:'Odkryj Premium',licensing_text_part1:'Ta strona używa czcionki "SF Pro Display", która jest znakiem towarowym firmy Apple Inc. Uważamy, że nasze użycie tej czcionki kwalifikuje się jako dozwolony użytek do celów niekomercyjnych związanych z projektem non-profit.',licensing_text_part2:'Nie jesteśmy powiązani z firmą Apple, Inc. i nie mamy z nią żadnego związku.'},es:{page_title:'AntaleVPN Free — Privacidad. Redefinida.',meta_description:'AntaleVPN proporciona una puerta de enlace segura, de alta velocidad y completamente gratuita a la internet abierta. Descubra la verdadera libertad en línea y una privacidad sin concesiones.',meta_keywords:'vpn gratis, mejor vpn gratis, antalevpn, vpn segura, navegación anónima, privacidad en línea, vpn rápida',og_title:'AntaleVPN Free — Privacidad. Redefinida.',og_description:'AntaleVPN proporciona una puerta de enlace segura, de alta velocidad y completamente gratuita a la internet abierta. Descubra la verdadera libertad en línea y una privacidad sin concesiones.',twitter_title:'AntaleVPN Free — Privacidad. Redefinida.',twitter_description:'AntaleVPN proporciona una puerta de enlace segura, de alta velocidad y completamente gratuita a la internet abierta. Descubra la verdadera libertad en línea y una privacidad sin concesiones.',status_page_link:'Estado de la red',hero_title:'Privacidad. Redefinida.',hero_subtitle:'AntaleVPN proporciona una puerta de enlace segura, de alta velocidad y completamente gratuita a la internet abierta. Descubra la verdadera libertad en línea y una privacidad sin concesiones.',cta_button:'Asegura tu conexión',feature_security_title:'Diseñado para el anonimato.',feature_security_desc:'Creemos que tus datos te pertenecen solo a ti. Nuestro servicio se basa en una estricta política de no registros y está fortalecido con un cifrado robusto, asegurando que tu huella digital permanezca intrazaable.',feature_speed_title:'Rendimiento sin concesiones.',feature_speed_desc:'Nuestra red global, mejorada por Cloudflare y Fastly, está optimizada para la velocidad y la fiabilidad. Transmita, descargue y navegue sin interrupciones.',feature_free_title:'La privacidad como un derecho, no un privilegio.',feature_free_desc:'AntaleVPN se compromete a proporcionar un servicio de VPN excepcional sin costo alguno. Sin tarifas ocultas, sin límites de datos, sin compromisos. Solo acceso a Internet puro y sin restricciones para todos.',footer_paid_plans:'Planes de pago',footer_powered_by:'Desarrollado por',footer_copyright:'Copyright &copy; 2025 Liora Technologies International. Todos los derechos reservados.',contact_text:'Para consultas sobre abuso, por favor contacte a:',language_selector_label:'Idioma:',lang_en:'English (US)',lang_pl:'Polski',lang_ru:'Русский',lang_es:'Español',donation_text:'Nuestro servicio gratuito está diseñado para una capa esencial de privacidad. Para obtener el conjunto definitivo de características de seguridad y un rendimiento incomparable, lo invitamos a explorar nuestros planes premium.',donation_button_text:'Descubre Premium',licensing_text_part1:'Esta página utiliza la fuente "SF Pro Display", que es una marca comercial de Apple Inc. Creemos que nuestro uso de esta fuente califica como uso justo para fines no comerciales relacionados con un proyecto sin fines de lucro.',licensing_text_part2:'No estamos afiliados a Apple, Inc. y no tenemos ninguna asociación con su empresa.'}};const languageSelect=document.getElementById('language-select'),donationNotification=document.getElementById('donation-notification'),closeDonationBtn=document.getElementById('close-donation-btn'),modalOverlay=document.getElementById('modal-overlay'),DONATION_POPUP_KEY='lioracloud_donation_popup_hidden_until',TWO_HOURS_MS=72e5;function applyLanguage(e){document.querySelectorAll('[data-key]').forEach(t=>{const a=t.getAttribute('data-key');translations[e]&&translations[e][a]&&('META'===t.tagName?t.setAttribute('content',translations[e][a]):t.innerHTML=translations[e][a])}),document.title=translations[e].page_title,document.querySelector('meta[name="description"]').setAttribute('content',translations[e].meta_description),document.querySelector('meta[name="keywords"]').setAttribute('content',translations[e].meta_keywords);const t=document.querySelector('.donation-button'),a=document.getElementById('footer-paid-plans-link');let o='https://antalevpn.com/pricing';'en'!==e&&(o=`https://antalevpn.com/${e}/pricing`),t.href=o,a.href=o}let userLang=localStorage.getItem('selectedLanguage')||navigator.language.split('-')[0];translations[userLang]||(userLang='en'),languageSelect.value=userLang,applyLanguage(userLang),languageSelect.addEventListener('change',e=>{const t=e.target.value;localStorage.setItem('selectedLanguage',t),applyLanguage(t)});function showDonationPopup(){modalOverlay.classList.add('show'),donationNotification.classList.add('show'),donationNotification.classList.remove('hide')}function hideDonationPopup(){modalOverlay.classList.remove('show'),donationNotification.classList.remove('show'),donationNotification.classList.add('hide'),localStorage.setItem(DONATION_POPUP_KEY,Date.now()+TWO_HOURS_MS)}window.addEventListener('load',()=>{const e=localStorage.getItem(DONATION_POPUP_KEY),t=Date.now();(!e||t>=parseInt(e,10))&&setTimeout(showDonationPopup,3e3)}),closeDonationBtn.addEventListener('click',hideDonationPopup),modalOverlay.addEventListener('click',e=>{e.target===modalOverlay&&hideDonationPopup()});</script>
 </body>
 </html>
